@@ -1,19 +1,19 @@
-import collections
-import collections.abc
-from pptx import Presentation
 from pptx.util import Inches
 
-img_path = 'monty-truth.png'
+class PictureSlide:
+    def __init__(self, title, img):
+        self.title = title
+        self.img = img
 
-prs = Presentation()
-blank_slide_layout = prs.slide_layouts[6]
-slide = prs.slides.add_slide(blank_slide_layout)
+    def create_slide(self, presentation):
+        img_path = self.img
+        slide_layout = presentation.slide_layouts[5]
+        slide = presentation.slides.add_slide(slide_layout)
+        title = slide.shapes.title
+        title.text = self.title
 
-left = top = Inches(1)
-pic = slide.shapes.add_picture(img_path, left, top)
+        top = Inches(1.5)
+        left = Inches(1)
+        height = Inches(5.5)
+        pic = slide.shapes.add_picture(img_path, left, top, height=height)
 
-left = Inches(5)
-height = Inches(5.5)
-pic = slide.shapes.add_picture(img_path, left, top, height=height)
-
-prs.save('test.pptx')

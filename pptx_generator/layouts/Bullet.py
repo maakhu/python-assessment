@@ -11,7 +11,7 @@ class BulletSlide:
         title_shape = shapes.title
         body_shape = shapes.placeholders[1]
 
-        title_shape.text = 'Adding a Bullet Slide'
+        title_shape.text = self.title
 
         tf = body_shape.text_frame
         tf.text = 'Find the bullet slide layout'
