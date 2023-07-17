@@ -25,5 +25,8 @@ presentation = Presentation()
 title_slide = TitleSlide("My Title", "Subtitle")
 title_slide.create_slide(presentation)
 
-presentation.save(title)
+bullets = ["Bullet 1", "Bullet 2", "Bullet 3"]
+bullet_slide = BulletSlide("Bullet Slide", bullets)
+bullet_slide.create_slide(presentation)
 
+presentation.save(title)
