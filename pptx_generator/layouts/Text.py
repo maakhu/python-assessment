@@ -11,8 +11,8 @@ class TextSlide:
         slide = presentation.slides.add_slide(slide_layout)
 
         left = top = width = height = Inches(1)
-        txBox = slide.shapes.add_textbox(left, top, width, height)
-        tf = txBox.text_frame
+        tx_box = slide.shapes.add_textbox(left, top, width, height)
+        tf = tx_box.text_frame
 
         p = tf.add_paragraph()
         p.text = self.title
