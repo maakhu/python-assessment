@@ -50,7 +50,8 @@ text_slide = TextSlide("Lorem Ipsum", text)
 text_slide.create_slide(presentation)
 
 # Read plot data from the content file
-with open(self.content) as file:
+content = sample.csv
+with open(content) as file:
        plot_data = json.load(file)
 
 plot = {
