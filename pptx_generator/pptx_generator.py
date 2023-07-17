@@ -9,12 +9,10 @@
 #  generate the corresponding slide using the python-pptx library.
 
 # Define a function to read the configuration file and generate the report based on the configuration.
-import collections
-import collections.abc
 from pptx import Presentation
 from datetime import datetime
-from layouts.Title import TitleSlide
-from layouts.Bullet import BulletSlide
+from pptx_generator.layouts.Title import TitleSlide
+from pptx_generator.layouts.Bullet import BulletSlide
 
 
 filename_time = datetime.now().strftime("%H:%M:%S_%d.%m.%Y")
