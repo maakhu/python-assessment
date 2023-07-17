@@ -13,12 +13,17 @@ import collections
 import collections.abc
 from pptx import Presentation
 from datetime import datetime
+from layouts.Title import TitleSlide
+from layouts.Bullet import BulletSlide
+
 
 filename_time = datetime.now().strftime("%H:%M:%S_%d.%m.%Y")
 title = "report_" + str(filename_time) + ".pptx"
 
 presentation = Presentation()
 
+title_slide = TitleSlide("My Title", "Subtitle")
+title_slide.create_slide(presentation)
 
 presentation.save(title)
 
