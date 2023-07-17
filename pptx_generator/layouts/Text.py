@@ -1,22 +1,23 @@
-from pptx import Presentation
 from pptx.util import Inches, Pt
 
-prs = Presentation()
-blank_slide_layout = prs.slide_layouts[6]
-slide = prs.slides.add_slide(blank_slide_layout)
 
-left = top = width = height = Inches(1)
-txBox = slide.shapes.add_textbox(left, top, width, height)
-tf = txBox.text_frame
+class TextSlide:
+    def __init__(self, title, content):
+        self.title = title
+        self.content = content
 
-tf.text = "This is text inside a textbox"
+    def create_slide(self, presentation):
+        slide_layout = presentation.slide_layouts[6]
+        slide = presentation.slides.add_slide(slide_layout)
 
-p = tf.add_paragraph()
-p.text = "This is a second paragraph that's bold"
-p.font.bold = True
+        left = top = width = height = Inches(1)
+        txBox = slide.shapes.add_textbox(left, top, width, height)
+        tf = txBox.text_frame
 
-p = tf.add_paragraph()
-p.text = "This is a third paragraph that's big"
-p.font.size = Pt(40)
+        p = tf.add_paragraph()
+        p.text = self.title
+        p.font.size = Pt(40)
 
-prs.save('test.pptx')
+        p = tf.add_paragraph()
+        p.text = self.content
+
