@@ -17,6 +17,9 @@ from layouts.Title import TitleSlide
 from layouts.Bullet import BulletSlide
 from layouts.Picture import PictureSlide
 from layouts.Text import TextSlide
+from layouts.Plot import PlotSlide
+import json
+import csv
 
 
 filename_time = datetime.now().strftime("%H:%M:%S_%d.%m.%Y")
@@ -46,5 +49,15 @@ text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 text_slide = TextSlide("Lorem Ipsum", text)
 text_slide.create_slide(presentation)
 
+# Read plot data from the content file
+with open(self.content) as file:
+       plot_data = json.load(file)
+
+plot = {
+       "x-label": "The Plot X Label",
+       "y-label": "The Plot Y Label"
+}
+plot_slide = PlotSlide("Title", plot_data, plot)
+plot_slide.create_slide(presentation)
 
 presentation.save(title)
