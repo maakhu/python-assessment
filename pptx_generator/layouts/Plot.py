@@ -15,42 +15,33 @@ class PlotSlide:
         slide = presentation.slides.add_slide(presentation.slide_layouts[5])
         title = slide.shapes.title
         title.text = self.title
-        # picture_placeholder = slide.placeholders[0]
+        # picture_placeholder = slide.placeholders[1]
 
         left = Inches(1)
         top = Inches(1.5)
         width = Inches(6)
         height = Inches(4.5)
 
-        chart_data = CategoryChartData()
-        with open(self.content, 'r') as file:
-            for line in file:
-                x, y = line.strip().split(';')
-                chart_data.append((f"X: {x}", float(y)))
+        x_values = self.config['x-label']
+        y_values = self.config['x-label']
 
-        # Add the chart to the slide
-        x, y, cx, cy = Inches(1), Inches(3), Inches(8), Inches(4.5)
-        slide.shapes.add_chart(
-            XL_CHART_TYPE.LINE, x, y, cx, cy, chart_data
-        )
-        #
-        # x_values = self.config['x-label']
-        # y_values = self.config['x-label']
-        #
-        # # Generate the plot
-        # x_data, y_data = self.read_plot_data(self.content)
-        # plt.plot(x_data, y_data)
-        # plt.xlabel(x_values)
-        # plt.ylabel(y_values)
-        # plt.title(self.title)
-        #
-        # # Save the plot as an image
-        # plot_filename = "plot.png"
-        # plt.savefig(plot_filename)
-        # plt.close()
+        # Generate the plot
+        x_data, y_data = self.read_plot_data(self.content)
+        plt.plot(x_data, y_data)
+        plt.xlabel(x_values)
+        plt.ylabel(y_values)
+        plt.title(self.title)
+
+        # Save the plot as an image
+        plot_filename = "plot.png"
+        plt.savefig(plot_filename)
+        plt.close()
 
         # Insert the plot image into the slide
-        # picture = picture_placeholder.insert_picture(plot_filename)
+        top = Inches(1.5)
+        left = Inches(1)
+        height = Inches(5.5)
+        picture = slide.shapes.add_picture(plot_filename, left, top, height=height)
         # picture.left = left
         # picture.top = top
         # picture.width = width
