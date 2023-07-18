@@ -1,4 +1,4 @@
-# Python Assessment - Task 1: PPTX Report Generator
+# Python PPTX Report Generator
 
 ![Python Version](https://img.shields.io/badge/python-3.11.4-blue.svg)
 
@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ### Usage
 
-1. Create a JSON file with the content for the PPTX report. The JSON structure should follow the format given in the example below:
+1. Create a JSON file with the content for the PPTX report (saved in the main folder). The JSON structure should follow the format given in the example below:
 
 ```json
 {
@@ -81,7 +81,7 @@ pip install -r requirements.txt
 2. Run the script with the JSON file as input:
 
 ```bash
-python pptx_generator.py input_file.json
+python3 pptx_generator.py input_file.json
 ```
 
 3. A PPTX report file will be generated in the same directory with a name like `report_HH:MM:SS_DD.MM.YYYY.pptx`.
