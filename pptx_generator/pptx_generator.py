@@ -11,15 +11,12 @@ import json
 import csv
 
 
-def create_report(files):
+def create_report(input_file):
     filename_time = datetime.now().strftime("%H:%M:%S_%d.%m.%Y")
     filename = "report_" + str(filename_time) + ".pptx"
 
     # Read input files
-    json_file_location = files[0]
-    chart_data_location = files[1]
-
-    json_content = open(json_file_location)
+    json_content = open(input_file[0])
     json_data = json.load(json_content)
 
     presentation = Presentation()
@@ -34,7 +31,7 @@ def create_report(files):
         elif slide["type"] == "picture":
             pic(presentation, slide['title'], slide['content'])
         elif slide["type"] == "plot":
-            print("plot")
+            plot(presentation, slide['title'], slide['content'], slide['configuration'])
 
     presentation.save(filename)
 
@@ -60,11 +57,7 @@ def text(presentation, title, content):
     text_slide.create_slide(presentation)
 
 
-def plot(presentation, title, content, configuration):
-    plot = {
-       "x-label": "The Plot X Label",
-       "y-label": "The Plot Y Label"
-    }
-    plot_slide = PlotSlide("Title", "plot_data", plot)
+def plot(presentation, title, content, config):
+    plot_slide = PlotSlide(title, content, config)
     plot_slide.create_slide(presentation)
 
