@@ -1,5 +1,5 @@
 import pytest
-from pptx_generator.helper import validate_and_execute
+from helper import validate_and_execute
 
 
 def test_validate_and_execute(capsys):

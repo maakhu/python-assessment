@@ -1,6 +1,6 @@
 import unittest
 from pptx import Presentation
-from pptx_generator.pptx_generator import TitleSlide
+from pptx_generator import TitleSlide
 
 
 class TestTitleSlide(unittest.TestCase):
