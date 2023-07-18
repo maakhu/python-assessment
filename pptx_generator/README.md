@@ -88,19 +88,11 @@ python pptx_generator.py input_file.json
 
 ## Test
 
-The repository includes a test suite to verify the functionality of the `pptx_generator.py` script. To run the tests, use the following command:
+The repository includes a test suite to verify the functionality of the `pptx_generator.py` script. Pytest framework has been used to prepare the tests, to run the tests, use the following command after installing Pytest:
 
 ```bash
-python -m unittest tests.test_pptx_generator
+pytest
 ```
-
-## Contributing
-
-If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
