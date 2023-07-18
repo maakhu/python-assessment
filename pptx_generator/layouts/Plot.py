@@ -1,6 +1,4 @@
 import csv
-from pptx.chart.data import CategoryChartData
-from pptx.enum.chart import XL_CHART_TYPE
 from pptx.util import Inches
 import matplotlib.pyplot as plt
 
@@ -15,15 +13,9 @@ class PlotSlide:
         slide = presentation.slides.add_slide(presentation.slide_layouts[5])
         title = slide.shapes.title
         title.text = self.title
-        # picture_placeholder = slide.placeholders[1]
-
-        left = Inches(1)
-        top = Inches(1.5)
-        width = Inches(6)
-        height = Inches(4.5)
 
         x_values = self.config['x-label']
-        y_values = self.config['x-label']
+        y_values = self.config['y-label']
 
         # Generate the plot
         x_data, y_data = self.read_plot_data(self.content)
@@ -42,10 +34,7 @@ class PlotSlide:
         left = Inches(1)
         height = Inches(5.5)
         picture = slide.shapes.add_picture(plot_filename, left, top, height=height)
-        # picture.left = left
-        # picture.top = top
-        # picture.width = width
-        # picture.height = height
+
 
     @staticmethod
     def read_plot_data(filename):
