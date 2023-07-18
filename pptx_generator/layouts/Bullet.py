@@ -1,7 +1,7 @@
 class BulletSlide:
-    def __init__(self, title, bullets):
+    def __init__(self, title, content):
         self.title = title
-        self.bullets = bullets
+        self.content = content
 
     def create_slide(self, presentation):
         bullet_slide_layout = presentation.slide_layouts[1]
@@ -14,13 +14,9 @@ class BulletSlide:
         title_shape.text = self.title
 
         tf = body_shape.text_frame
-        tf.text = 'Find the bullet slide layout'
+        tf.text = ''
 
-        p = tf.add_paragraph()
-        p.text = 'Use _TextFrame.text for first bullet'
-        p.level = 1
-
-        p = tf.add_paragraph()
-        p.text = 'Use _TextFrame.add_paragraph() for subsequent bullets'
-        p.level = 2
-
+        for bullet in self.content:
+            p = tf.add_paragraph()
+            p.text = bullet['text']
+            p.level = bullet['level']
