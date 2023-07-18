@@ -4,7 +4,6 @@ class BulletSlide:
         self.content = content
 
     def create_slide(self, presentation):
-        print(self.content)
         bullet_slide_layout = presentation.slide_layouts[1]
         slide = presentation.slides.add_slide(bullet_slide_layout)
         shapes = slide.shapes
