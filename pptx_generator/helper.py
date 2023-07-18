@@ -1,4 +1,4 @@
-from pptx_generator import create_report
+from pptx_generator.pptx_generator import create_report
 
 user_input_message = "Please enter the .json filename" \
                      " to prepare the report!" \

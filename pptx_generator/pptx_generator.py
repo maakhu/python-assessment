@@ -2,13 +2,12 @@ import collections
 import collections.abc
 from pptx import Presentation
 from datetime import datetime
-from layouts.Title import TitleSlide
-from layouts.Bullet import BulletSlide
-from layouts.Picture import PictureSlide
-from layouts.Text import TextSlide
-from layouts.Plot import PlotSlide
+from pptx_generator.layouts.Title import TitleSlide
+from pptx_generator.layouts.Bullet import BulletSlide
+from pptx_generator.layouts.Picture import PictureSlide
+from pptx_generator.layouts.Text import TextSlide
+from pptx_generator.layouts.Plot import PlotSlide
 import json
-import csv
 
 
 def create_report(input_file):
@@ -60,4 +59,3 @@ def text(presentation, title, content):
 def plot(presentation, title, content, config):
     plot_slide = PlotSlide(title, content, config)
     plot_slide.create_slide(presentation)
-
